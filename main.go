@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/Arismonx/task-manager/config"
+	"github.com/Arismonx/task-manager/routers"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -15,8 +16,6 @@ func main() {
 	app := fiber.New()
 
 	//Test path '/'
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello World")
-	})
+	routers.SetAPI(app)
 	app.Listen(":8080")
 }
